@@ -10,8 +10,8 @@ import {
 } from '@chakra-ui/react'
 import { useState } from 'react'
 import YouTube from 'react-youtube'
-import * as moment from 'moment'
-import * as momentDurationFormatSetup from 'moment-duration-format'
+import moment from 'moment'
+import momentDurationFormatSetup from 'moment-duration-format'
 momentDurationFormatSetup(moment)
 import { toMilliseconds } from 'colon-notation'
 import { LinkIcon } from '@chakra-ui/icons'
