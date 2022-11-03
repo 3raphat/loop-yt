@@ -17,6 +17,7 @@ import { toMilliseconds } from 'colon-notation'
 import { LinkIcon } from '@chakra-ui/icons'
 
 function App() {
+  const [player, setPlayer] = useState()
   const [url, setUrl] = useState('')
 
   const [curTime, setCurTime] = useState()
@@ -41,6 +42,7 @@ function App() {
   }
 
   const onEnd = (e) => {
+    player?.seekTo((toMilliseconds(start) / 1000), true)
     e.target.playVideo()
   }
 
@@ -107,6 +109,7 @@ function App() {
 
             <YouTube
               videoId={videoId}
+              onReady={e => setPlayer(e.target)}
               onEnd={onEnd}
               onPlay={(e) => (getInfo(e), getCurrentTime(e), getDuration(e))}
               opts={opts}
